@@ -2,17 +2,18 @@
 
 ## Automated regression coverage
 
-Run `npm run check` and `npm test`. The suite covers default activation, disabled state, delayed rendering, an already-wide player, manual override, SPA navigation with obsolete DOM, non-watch routes, fullscreen exit, mini player, hidden controls, bounded retries, timeout cleanup, cancellation, storage-area filtering, stale reads, storage errors, page cleanup, re-enabling, popup persistence and failed-save rollback/retry.
+Run `npm run check` and `npm test`. The suite covers default activation, disabled state, immediate reaction to delayed rendering, startup before the document root exists, controls becoming enabled, mutation bursts, an already-wide player, manual override, SPA navigation with obsolete DOM, non-watch routes, fullscreen exit, mini player, hidden controls, bounded retries, timeout cleanup, cancellation, storage-area filtering, stale reads, storage errors, page cleanup, re-enabling, popup persistence and failed-save rollback/retry.
 
 The tests exercise the real shipped scripts in deterministic DOM/storage fixtures. They do not contact YouTube or inspect a real installed browser extension.
 
 ## Current validation record
 
-- 21 automated regression tests passed locally on October 15, 2026.
+- 24 automated regression tests passed locally for version 1.1.1 on October 15, 2026.
 - Manifest, local resources, JavaScript syntax and all four PNG sizes passed validation.
 - Upload ZIP generated successfully with ten extension-only files and a SHA-256 checksum.
 - Popup rendered at its 336px width in the browser; enabled, paused, keyboard-focus and storage-error states were inspected. Keyboard toggle, failed-save rollback, retry and focus restoration passed using a development-only storage adapter. The independent design review returned `ship` for the popup scope.
-- **Actual unpacked-extension testing on live YouTube in Chrome remains a release check.** No store approval is claimed.
+- The owner reported that version 1.1.0 works in local Chrome, with a noticeable delay before the layout changes. Version 1.1.1 starts earlier and removes the extra timer wait after observed DOM changes. Its timing improvements are covered by fixtures but have not been measured on live YouTube.
+- **The complete live YouTube checklist, including testing version 1.1.1 in Chrome, remains a release check.** No store approval is claimed.
 
 ## Manual Chrome release checklist
 
@@ -22,6 +23,7 @@ The tests exercise the real shipped scripts in deterministic DOM/storage fixture
 - [ ] Navigate from Home/search to a video, and from one video to another, without a page reload.
 - [ ] Use browser Back/Forward between videos.
 - [ ] Test a slow network or delayed player controls.
+- [ ] Compare first-load and video-to-video layout timing after reloading version 1.1.1. Record separately any initial narrow-to-wide transition and any later wide-to-narrow reset by YouTube.
 - [ ] After automatic activation, manually leave theater mode. It should stay in your chosen layout for that video.
 - [ ] Disable the extension setting. Verify the current layout does not change. Open another video in a default view and confirm the extension does not change it. YouTube itself may remember a previous layout.
 - [ ] Re-enable while a watch tab is open; confirm an eligible player enters theater mode.

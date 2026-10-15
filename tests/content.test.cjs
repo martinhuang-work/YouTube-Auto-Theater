@@ -23,7 +23,7 @@ function harness(options = {}) {
   const player = { classList: { contains: key => classes.has(key) }, querySelector: () => control ? button : null };
   const watch = { hidden: false, hasAttribute: key => attrs.has(key), getAttribute: key => attrs.get(key) ?? null, querySelector: () => player };
   const document = {
-    documentElement: {}, fullscreenElement: null, hidden: false,
+    documentElement: options.earlyDocument ? null : {}, fullscreenElement: null, hidden: false,
     querySelector: () => rendered ? watch : null,
     addEventListener: (name, fn) => { listeners[name] = fn; }
   };
@@ -38,7 +38,14 @@ function harness(options = {}) {
     Date: { now: () => now },
     setTimeout(fn, ms) { const id = ++nextTimer; timers.set(id, { fn, time: now + ms }); return id; },
     clearTimeout(id) { timers.delete(id); },
-    MutationObserver: class { constructor(fn) { this.fn = fn; mutations.push(this); } observe() { this.active = true; } disconnect() { this.active = false; } }
+    MutationObserver: class {
+      constructor(fn) { this.fn = fn; mutations.push(this); }
+      observe(target) {
+        if (!target || typeof target !== 'object') throw new TypeError('Expected a Node');
+        this.active = true;
+      }
+      disconnect() { this.active = false; }
+    }
   });
   return {
     attrs, classes, document, watch, button, runtime, timers,
@@ -72,10 +79,30 @@ test('disabled preference leaves the player alone, enabling acts immediately', (
   h.change(true); assert.equal(h.clicks, 1);
   h.change(false); assert(h.attrs.has('theater'));
 });
-test('waits for delayed player and delayed size control', () => {
+test('delayed controls activate on DOM delivery without waiting for the retry timer', () => {
   const h = harness({ rendered: false, control: false }); h.tick(1200);
-  h.render(); h.mutate(); h.tick(500); assert.equal(h.clicks, 0);
-  h.controls(); h.mutate(); h.tick(250); assert.equal(h.clicks, 1);
+  h.render(); h.mutate(); assert.equal(h.clicks, 0);
+  h.controls(); h.mutate(); assert.equal(h.clicks, 1);
+  assert.equal(h.observing, false); assert.equal(h.timers.size, 0);
+});
+test('can start before the document root exists and detect the first player', () => {
+  const h = harness({ earlyDocument: true, rendered: false });
+  assert.equal(h.clicks, 0); assert.equal(h.observing, true);
+  h.document.documentElement = {}; h.render(); h.mutate();
+  assert.equal(h.clicks, 1); assert.equal(h.observing, false);
+});
+test('a disabled control activates as soon as it becomes enabled', () => {
+  const h = harness({ enabled: false }); h.button.disabled = true;
+  h.change(true); assert.equal(h.clicks, 0);
+  h.button.disabled = false; h.mutate(); assert.equal(h.clicks, 1);
+});
+test('frequent DOM changes do not bypass click settling or duplicate activation', () => {
+  const h = harness({ inert: true }); assert.equal(h.clicks, 1);
+  for (let i = 0; i < 50; i++) { h.mutate(); h.tick(10); }
+  assert.equal(h.clicks, 1);
+  h.attrs.set('theater', ''); h.mutate();
+  assert.equal(h.observing, false); assert.equal(h.timers.size, 0);
+  h.mutate(); h.tick(2000); assert.equal(h.clicks, 1);
 });
 test('does not toggle a video that is already in theater mode', () => {
   const h = harness({ enabled: false }); h.attrs.set('theater', ''); h.change(true);
@@ -89,7 +116,7 @@ test('respects manual exit and repeated navigation events for the same video', (
 test('new SPA video waits for matching DOM and activates', () => {
   const h = harness(); h.attrs.delete('theater'); h.navigate('second'); h.tick(500);
   assert.equal(h.clicks, 1);
-  h.attrs.set('video-id', 'second'); h.mutate(); h.tick(250);
+  h.attrs.set('video-id', 'second'); h.mutate();
   assert.equal(h.clicks, 2);
 });
 test('shorts and non-watch routes are ignored', () => {

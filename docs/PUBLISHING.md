@@ -1,12 +1,14 @@
 # Chrome Web Store publishing guide
 
-Prepared for version **1.1.0**, October 15, 2026. Publishing and Google's review have not occurred.
+Prepared for version **1.1.1**, October 15, 2026. Publishing and Google's review have not occurred.
 
 ## 1. Complete publisher account setup
 
 Open the [Chrome Web Store Developer Dashboard](https://chrome.google.com/webstore/devconsole). The publisher must register, pay Google's one-time registration fee if not already registered, complete required identity/contact checks, and enable Google Account two-step verification. Account details, legal certifications and any payment are owner steps.
 
 Use a developer contact address you want associated with the listing. No private account email has been placed in the public project.
+
+Declare your trader status based on your circumstances: publishing for purposes related to a business, trade or profession is trader activity; publishing outside those purposes is non-trader activity. A free extension can still serve professional purposes. The publisher must make this declaration. See [Google's trader guidance](https://developer.chrome.com/docs/webstore/program-policies/trader-disclosure).
 
 ## 2. Run the live-browser release checks
 
@@ -22,7 +24,7 @@ npm test
 npm run package
 ```
 
-Upload `dist/YouTube-Auto-Theater-1.1.0.zip`. It includes only the ten files in `extension/`. `manifest.json` is at the ZIP root. Do not upload the source repository ZIP, screenshots, test harness or development files as the extension package.
+Upload `dist/YouTube-Auto-Theater-1.1.1.zip`. It includes only the ten files in `extension/`. `manifest.json` is at the ZIP root. Do not upload the source repository ZIP, screenshots, test harness or development files as the extension package.
 
 For a later release, increase the manifest version, synchronize `package.json`, rerun validation and create a fresh ZIP. Never reuse an already-uploaded version number.
 

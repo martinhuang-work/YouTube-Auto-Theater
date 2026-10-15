@@ -104,12 +104,16 @@
     deadline = Date.now() + WAIT_MS;
     lastClick = -Infinity;
     clicks = 0;
-    observer = new MutationObserver(schedule);
-    observer.observe(document.documentElement, {
+    // MutationObserver already batches DOM changes. React in that delivery,
+    // before the next paint, instead of adding the polling interval to it.
+    observer = new MutationObserver(attempt);
+    // At document_start even <html> may not exist yet. Observe the Document
+    // so its first elements and later player controls are both detected.
+    observer.observe(document, {
       childList: true,
       subtree: true,
       attributes: true,
-      attributeFilter: ['theater', 'video-id', 'hidden']
+      attributeFilter: ['theater', 'video-id', 'hidden', 'disabled', 'aria-disabled']
     });
     attempt();
   }

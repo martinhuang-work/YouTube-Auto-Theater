@@ -51,7 +51,7 @@ Read the [privacy policy](PRIVACY.md). YouTube's own data practices and browser 
 
 ## How it works
 
-The content script listens for YouTube navigation events and caches the saved preference. On an eligible watch page, it waits for the matching player and a visible theater-size control, then clicks only if the page is not already in theater mode. A short-lived observer and timer cover delayed rendering. After success it disconnects, preserving your manual choices for that video.
+The content script starts at `document_start`, listens for YouTube navigation events and caches the saved preference. On an eligible watch page, it waits for the matching player and a visible theater-size control, then clicks only if the page is not already in theater mode. A short-lived observer reacts immediately when player elements change; a timer covers changes that do not produce an observed DOM mutation. After success it disconnects, preserving your manual choices for that video.
 
 Each activation window is limited to 20 seconds and at most three spaced clicks. New videos, explicitly re-enabling the switch, returning to an unfinished visible tab or exiting fullscreen can start an appropriate new attempt. Failed or missing controls never cause unlimited polling.
 
@@ -67,7 +67,7 @@ npm run package
 
 - `check` validates the manifest, local resources, JavaScript syntax and PNG icon sizes.
 - `test` runs behavior regressions for navigation, delayed rendering, manual overrides, fullscreen, storage failures and toggle persistence.
-- `package` creates `dist/YouTube-Auto-Theater-1.1.0.zip` and its SHA-256 checksum. The ZIP includes only the contents of `extension/`, with `manifest.json` at its root.
+- `package` creates `dist/YouTube-Auto-Theater-1.1.1.zip` and its SHA-256 checksum. The ZIP includes only the contents of `extension/`, with `manifest.json` at its root.
 
 Tests use controlled page/API fixtures. They complement the [manual browser checklist](docs/TESTING.md), which must be run against live YouTube before submission and after significant YouTube layout changes. See that file for the current validation record and limits.
 
@@ -111,6 +111,8 @@ Bug reports are welcome through [GitHub Issues](https://github.com/martinhuang-w
 ## Troubleshooting
 
 **Nothing happens:** Check that the switch is enabled, refresh YouTube after installation, and open a standard `/watch?v=…` video. Check Chrome's extension site-access setting for YouTube. Other player-layout extensions may conflict.
+
+**A small delay before the video widens:** Version 1.1.1 starts earlier and removes the extra 250 ms wait after observed player changes. Reload the extension and refresh YouTube to use the update. YouTube must still create and initialize its player; a completely flicker-free first frame is not guaranteed.
 
 **It stopped changing the layout after I exited theater mode:** This is intentional for the current video. Open another video or switch the extension off and on to apply it again.
 

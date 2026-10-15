@@ -10,6 +10,7 @@ assert.match(manifest.version, /^\d+\.\d+\.\d+$/);
 assert(manifest.description.length <= 132);
 assert.deepEqual(manifest.permissions, ['storage']);
 assert.deepEqual(manifest.content_scripts[0].matches, ['https://www.youtube.com/*', 'https://youtube.com/*']);
+assert.equal(manifest.content_scripts[0].run_at, 'document_start');
 assert(!manifest.background && !manifest.host_permissions && !manifest.externally_connectable);
 const files = fs.readdirSync(root, { recursive: true }).filter(file => fs.statSync(path.join(root, file)).isFile());
 for (const file of files) {

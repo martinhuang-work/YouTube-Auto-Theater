@@ -1,6 +1,6 @@
 {
   "name": "youtube-auto-theater",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "private": true,
   "description": "Development and release tooling for YouTube Auto Theater Mode.",
   "scripts": {
