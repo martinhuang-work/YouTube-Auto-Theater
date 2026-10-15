@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <title>YouTube Auto Theater Mode</title>
+    <link rel="stylesheet" href="popup.css">
+    <script src="popup.js" defer></script>
+  </head>
+  <body data-enabled="false">
+    <main>
+      <header class="identity">
+        <img src="icons/mark.svg" width="36" height="36" alt="">
+        <div><h1>Auto Theater</h1><p>for YouTube</p></div>
+      </header>
+
+      <div class="screen-demo" aria-hidden="true">
+        <div class="screen-frame"><span class="screen-line"></span></div>
+        <span class="screen-base"></span>
+      </div>
+
+      <div class="setting">
+        <div class="setting-copy">
+          <label for="toggleState">Theater mode</label>
+          <p id="stateText">Loading preference…</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="toggleState" role="switch" aria-describedby="behavior" disabled>
+          <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+        </label>
+      </div>
+
+      <p id="behavior" class="behavior">Automatically widen videos when they open.</p>
+      <div class="feedback" role="status" aria-live="polite" aria-atomic="true">
+        <span id="saveStatus">Loading your setting…</span>
+        <button id="retry" type="button" hidden>Try again</button>
+      </div>
+      <footer><span class="privacy-mark" aria-hidden="true"></span>Only your preference. Saved on this device.</footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,300 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-15T18:22:27Z",
+  "title": "Design System: YouTube Auto Theater Mode",
+  "extensions": {
+    "colorMeta": {
+      "background": {
+        "role": "neutral",
+        "displayName": "Deep Charcoal",
+        "canonical": "#17191d",
+        "tonalRamp": [
+          "oklch(15.00% 0.00846 264.38)",
+          "oklch(26.43% 0.00846 264.38)",
+          "oklch(37.86% 0.00846 264.38)",
+          "oklch(49.29% 0.00846 264.38)",
+          "oklch(60.71% 0.00846 264.38)",
+          "oklch(72.14% 0.00846 264.38)",
+          "oklch(83.57% 0.00846 264.38)",
+          "oklch(95.00% 0.00846 264.38)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Raised Charcoal",
+        "canonical": "#22252b",
+        "tonalRamp": [
+          "oklch(15.00% 0.01204 264.34)",
+          "oklch(26.43% 0.01204 264.34)",
+          "oklch(37.86% 0.01204 264.34)",
+          "oklch(49.29% 0.01204 264.34)",
+          "oklch(60.71% 0.01204 264.34)",
+          "oklch(72.14% 0.01204 264.34)",
+          "oklch(83.57% 0.01204 264.34)",
+          "oklch(95.00% 0.01204 264.34)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Slate Line",
+        "canonical": "#3b4049",
+        "tonalRamp": [
+          "oklch(15.00% 0.01686 262.28)",
+          "oklch(26.43% 0.01686 262.28)",
+          "oklch(37.86% 0.01686 262.28)",
+          "oklch(49.29% 0.01686 262.28)",
+          "oklch(60.71% 0.01686 262.28)",
+          "oklch(72.14% 0.01686 262.28)",
+          "oklch(83.57% 0.01686 262.28)",
+          "oklch(95.00% 0.01686 262.28)"
+        ]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Soft White",
+        "canonical": "#f5f5f4",
+        "tonalRamp": [
+          "oklch(15.00% 0.00132 106.42)",
+          "oklch(26.43% 0.00132 106.42)",
+          "oklch(37.86% 0.00132 106.42)",
+          "oklch(49.29% 0.00132 106.42)",
+          "oklch(60.71% 0.00132 106.42)",
+          "oklch(72.14% 0.00132 106.42)",
+          "oklch(83.57% 0.00132 106.42)",
+          "oklch(95.00% 0.00132 106.42)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Cool Gray",
+        "canonical": "#b2b7c0",
+        "tonalRamp": [
+          "oklch(15.00% 0.01393 262.37)",
+          "oklch(26.43% 0.01393 262.37)",
+          "oklch(37.86% 0.01393 262.37)",
+          "oklch(49.29% 0.01393 262.37)",
+          "oklch(60.71% 0.01393 262.37)",
+          "oklch(72.14% 0.01393 262.37)",
+          "oklch(83.57% 0.01393 262.37)",
+          "oklch(95.00% 0.01393 262.37)"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Theater Red",
+        "canonical": "#f04452",
+        "tonalRamp": [
+          "oklch(15.00% 0.20752 21.05)",
+          "oklch(26.43% 0.20752 21.05)",
+          "oklch(37.86% 0.20752 21.05)",
+          "oklch(49.29% 0.20752 21.05)",
+          "oklch(60.71% 0.20752 21.05)",
+          "oklch(72.14% 0.20752 21.05)",
+          "oklch(83.57% 0.20752 21.05)",
+          "oklch(95.00% 0.20752 21.05)"
+        ]
+      },
+      "focus": {
+        "role": "primary",
+        "displayName": "Soft Rose",
+        "canonical": "#ffb1b8",
+        "tonalRamp": [
+          "oklch(15.00% 0.09161 13.31)",
+          "oklch(26.43% 0.09161 13.31)",
+          "oklch(37.86% 0.09161 13.31)",
+          "oklch(49.29% 0.09161 13.31)",
+          "oklch(60.71% 0.09161 13.31)",
+          "oklch(72.14% 0.09161 13.31)",
+          "oklch(83.57% 0.09161 13.31)",
+          "oklch(95.00% 0.09161 13.31)"
+        ]
+      },
+      "switch-paused": {
+        "role": "neutral",
+        "displayName": "Paused Slate",
+        "canonical": "#555c68",
+        "tonalRamp": [
+          "oklch(15.00% 0.02131 261.28)",
+          "oklch(26.43% 0.02131 261.28)",
+          "oklch(37.86% 0.02131 261.28)",
+          "oklch(49.29% 0.02131 261.28)",
+          "oklch(60.71% 0.02131 261.28)",
+          "oklch(72.14% 0.02131 261.28)",
+          "oklch(83.57% 0.02131 261.28)",
+          "oklch(95.00% 0.02131 261.28)"
+        ]
+      },
+      "thumb": {
+        "role": "neutral",
+        "displayName": "Thumb White",
+        "canonical": "#fff",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 0.00)",
+          "oklch(26.43% 0.00000 0.00)",
+          "oklch(37.86% 0.00000 0.00)",
+          "oklch(49.29% 0.00000 0.00)",
+          "oklch(60.71% 0.00000 0.00)",
+          "oklch(72.14% 0.00000 0.00)",
+          "oklch(83.57% 0.00000 0.00)",
+          "oklch(95.00% 0.00000 0.00)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "title": {
+        "displayName": "Identity Title",
+        "purpose": "Compact product name in the popup header."
+      },
+      "label": {
+        "displayName": "Setting Label",
+        "purpose": "The name of the preference beside the switch."
+      },
+      "body": {
+        "displayName": "Behavior Copy",
+        "purpose": "Explain what the current preference changes."
+      },
+      "supporting": {
+        "displayName": "Supporting Text",
+        "purpose": "Subtitle, saved state, feedback, and retry label."
+      },
+      "caption": {
+        "displayName": "Privacy Caption",
+        "purpose": "Quiet local-storage statement in the footer."
+      }
+    },
+    "shadows": [
+      {
+        "name": "switch-thumb",
+        "value": "0 2px 4px #0003",
+        "purpose": "Separate the white movable thumb from its track."
+      }
+    ],
+    "motion": [
+      {
+        "name": "switch-color",
+        "value": "background-color 160ms",
+        "purpose": "Animate the switch track between paused and enabled."
+      },
+      {
+        "name": "switch-travel",
+        "value": "transform 240ms cubic-bezier(.16,1,.3,1)",
+        "purpose": "Move the switch thumb with the saved preference."
+      },
+      {
+        "name": "screen-width",
+        "value": "width 240ms cubic-bezier(.16,1,.3,1)",
+        "purpose": "Widen the illustrative screen when the preference is enabled."
+      },
+      {
+        "name": "screen-outline",
+        "value": "border-color 240ms",
+        "purpose": "Change the screen outline to the active accent."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "transition: none !important",
+        "purpose": "Applied to all elements and pseudo-elements under prefers-reduced-motion: reduce."
+      }
+    ],
+    "breakpoints": []
+  },
+  "components": [
+    {
+      "name": "Preference Switch — Paused",
+      "kind": "input",
+      "refersTo": "switch-paused",
+      "description": "Native checkbox with switch semantics; starts paused and supports hover, focus, and toggling.",
+      "html": "<div class=\"ds-switch-demo\"><label class=\"ds-switch-label\" for=\"ds-pref-paused\">Theater mode</label><label class=\"ds-switch\"><input id=\"ds-pref-paused\" type=\"checkbox\" role=\"switch\"><span class=\"ds-switch-track\" aria-hidden=\"true\"><span class=\"ds-switch-thumb\"></span></span></label></div>",
+      "css": ".ds-switch-demo{display:flex;align-items:center;gap:16px;font-family:\"Segoe UI\",system-ui,sans-serif;color:var(--text,#f5f5f4)}.ds-switch-label{font-size:16px;font-weight:600;line-height:1.5;cursor:pointer}.ds-switch{position:relative;flex:none;width:54px;height:44px;cursor:pointer;display:grid;align-items:center}.ds-switch input{position:absolute;width:100%;height:100%;inset:0;margin:0;opacity:0;cursor:pointer;z-index:1}.ds-switch-track{box-sizing:border-box;height:30px;width:54px;border-radius:30px;background:#555c68;display:flex;align-items:center;padding:4px;transition:background-color 160ms}.ds-switch-thumb{height:22px;width:22px;border-radius:50%;background:#fff;box-shadow:0 2px 4px #0003;transition:transform 240ms cubic-bezier(.16,1,.3,1)}.ds-switch input:checked+.ds-switch-track{background:var(--accent,#f04452)}.ds-switch input:checked+.ds-switch-track .ds-switch-thumb{transform:translateX(24px)}.ds-switch input:focus-visible+.ds-switch-track{outline:2px solid var(--focus,#ffb1b8);outline-offset:4px}.ds-switch input:hover:not(:disabled)+.ds-switch-track{filter:brightness(1.12)}.ds-switch input:disabled{cursor:wait}.ds-switch input:disabled+.ds-switch-track{opacity:.5}@media(prefers-reduced-motion:reduce){.ds-switch-track,.ds-switch-thumb{transition:none!important}}@media(forced-colors:active){.ds-switch-track{border:1px solid ButtonText}.ds-switch-thumb{background:ButtonText}.ds-switch input:checked+.ds-switch-track{background:Highlight}.ds-switch input:checked+.ds-switch-track .ds-switch-thumb{background:HighlightText}}"
+    },
+    {
+      "name": "Preference Switch — Enabled",
+      "kind": "input",
+      "refersTo": "switch-enabled",
+      "description": "The same native switch, initially enabled; this snippet demonstrates appearance without persisting storage.",
+      "html": "<div class=\"ds-switch-demo\"><label class=\"ds-switch-label\" for=\"ds-pref-enabled\">Theater mode</label><label class=\"ds-switch\"><input id=\"ds-pref-enabled\" type=\"checkbox\" role=\"switch\" checked><span class=\"ds-switch-track\" aria-hidden=\"true\"><span class=\"ds-switch-thumb\"></span></span></label></div>",
+      "css": ".ds-switch-demo{display:flex;align-items:center;gap:16px;font-family:\"Segoe UI\",system-ui,sans-serif;color:var(--text,#f5f5f4)}.ds-switch-label{font-size:16px;font-weight:600;line-height:1.5;cursor:pointer}.ds-switch{position:relative;flex:none;width:54px;height:44px;cursor:pointer;display:grid;align-items:center}.ds-switch input{position:absolute;width:100%;height:100%;inset:0;margin:0;opacity:0;cursor:pointer;z-index:1}.ds-switch-track{box-sizing:border-box;height:30px;width:54px;border-radius:30px;background:#555c68;display:flex;align-items:center;padding:4px;transition:background-color 160ms}.ds-switch-thumb{height:22px;width:22px;border-radius:50%;background:#fff;box-shadow:0 2px 4px #0003;transition:transform 240ms cubic-bezier(.16,1,.3,1)}.ds-switch input:checked+.ds-switch-track{background:var(--accent,#f04452)}.ds-switch input:checked+.ds-switch-track .ds-switch-thumb{transform:translateX(24px)}.ds-switch input:focus-visible+.ds-switch-track{outline:2px solid var(--focus,#ffb1b8);outline-offset:4px}.ds-switch input:hover:not(:disabled)+.ds-switch-track{filter:brightness(1.12)}.ds-switch input:disabled{cursor:wait}.ds-switch input:disabled+.ds-switch-track{opacity:.5}@media(prefers-reduced-motion:reduce){.ds-switch-track,.ds-switch-thumb{transition:none!important}}@media(forced-colors:active){.ds-switch-track{border:1px solid ButtonText}.ds-switch-thumb{background:ButtonText}.ds-switch input:checked+.ds-switch-track{background:Highlight}.ds-switch input:checked+.ds-switch-track .ds-switch-thumb{background:HighlightText}}"
+    },
+    {
+      "name": "Retry Button",
+      "kind": "button",
+      "refersTo": "button-retry",
+      "description": "Secondary recovery action shown when preference storage fails.",
+      "html": "<button class=\"ds-retry\" type=\"button\">Try again</button>",
+      "css": ".ds-retry{font-family:\"Segoe UI\",system-ui,sans-serif;font-size:12px;font-weight:400;line-height:1.5;color:var(--text,#f5f5f4);background:var(--surface,#22252b);border:1px solid #626978;border-radius:6px;padding:5px 10px;min-height:32px;cursor:pointer}.ds-retry:hover{background:#343943}.ds-retry:focus-visible{outline:2px solid var(--focus,#ffb1b8);outline-offset:3px}"
+    },
+    {
+      "name": "Screen Illustration — Paused",
+      "kind": "custom",
+      "refersTo": "screen-paused",
+      "description": "Decorative compact screen for the paused preference; not live player status.",
+      "html": "<div class=\"ds-screen-demo\" data-enabled=\"false\" aria-hidden=\"true\"><div class=\"ds-screen-frame\"><span class=\"ds-screen-line\"></span></div><span class=\"ds-screen-base\"></span></div>",
+      "css": ".ds-screen-demo{height:122px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:9px}.ds-screen-frame{box-sizing:border-box;height:60px;width:110px;background:var(--surface,#22252b);border:1px solid var(--line,#3b4049);border-radius:7px;display:grid;place-items:center;transition:width 240ms cubic-bezier(.16,1,.3,1),border-color 240ms}.ds-screen-line{display:block;height:3px;width:31px;border-radius:2px;background:#6b717e}.ds-screen-base{width:22px;height:2px;background:var(--line,#3b4049)}.ds-screen-demo[data-enabled=\"true\"] .ds-screen-frame{width:220px;border-color:#f04452}.ds-screen-demo[data-enabled=\"true\"] .ds-screen-line{background:var(--accent,#f04452)}@media(prefers-reduced-motion:reduce){.ds-screen-frame{transition:none!important}}"
+    },
+    {
+      "name": "Screen Illustration — Enabled",
+      "kind": "custom",
+      "refersTo": "screen-enabled",
+      "description": "Decorative wide screen with the active accent; not live player status.",
+      "html": "<div class=\"ds-screen-demo\" data-enabled=\"true\" aria-hidden=\"true\"><div class=\"ds-screen-frame\"><span class=\"ds-screen-line\"></span></div><span class=\"ds-screen-base\"></span></div>",
+      "css": ".ds-screen-demo{height:122px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:9px}.ds-screen-frame{box-sizing:border-box;height:60px;width:110px;background:var(--surface,#22252b);border:1px solid var(--line,#3b4049);border-radius:7px;display:grid;place-items:center;transition:width 240ms cubic-bezier(.16,1,.3,1),border-color 240ms}.ds-screen-line{display:block;height:3px;width:31px;border-radius:2px;background:#6b717e}.ds-screen-base{width:22px;height:2px;background:var(--line,#3b4049)}.ds-screen-demo[data-enabled=\"true\"] .ds-screen-frame{width:220px;border-color:#f04452}.ds-screen-demo[data-enabled=\"true\"] .ds-screen-line{background:var(--accent,#f04452)}@media(prefers-reduced-motion:reduce){.ds-screen-frame{transition:none!important}}"
+    },
+    {
+      "name": "Original Screen Identity",
+      "kind": "custom",
+      "description": "The shipped SVG screen mark and product typography; the mark is decorative beside its textual name.",
+      "html": "<div class=\"ds-identity\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"36\" height=\"36\" viewBox=\"0 0 128 128\" aria-hidden=\"true\"><rect x=\"16\" y=\"16\" width=\"96\" height=\"96\" rx=\"22\" fill=\"#f04452\"/><rect x=\"31\" y=\"41\" width=\"66\" height=\"40\" rx=\"6\" fill=\"#17191d\"/><path d=\"M38 48h10m-10 0v10m52-10H80m10 0v10M38 74h10m-10 0V64m52 10H80m10 0V64\" fill=\"none\" stroke=\"#fff\" stroke-width=\"3\" stroke-linecap=\"round\"/><path d=\"M54 90h20\" fill=\"none\" stroke=\"#17191d\" stroke-width=\"4\" stroke-linecap=\"round\"/></svg><div><h1>Auto Theater</h1><p>for YouTube</p></div></div>",
+      "css": ".ds-identity{display:flex;align-items:center;gap:12px;color:var(--text,#f5f5f4);font-family:\"Segoe UI\",system-ui,sans-serif}.ds-identity svg{flex:none}.ds-identity h1{margin:0;font-size:20px;line-height:1.25;font-weight:650;letter-spacing:-.025em}.ds-identity p{margin:3px 0 0;color:var(--muted,#b2b7c0);font-size:12px;line-height:1.5}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Compact Charcoal Utility",
+    "overview": "A compact charcoal utility makes one saved preference immediately readable. The original screen mark supplies the identity, and the red accent connects the enabled switch to the widening screen illustration. Clear state language carries the meaning alongside color.\n\nThe visual system uses native text and controls, restrained tonal layering, and a small amount of purposeful movement. Its established scope is the desktop extension popup; composition and task details remain in `docs/popup-brief.md`.",
+    "keyCharacteristics": [
+      "Charcoal surfaces with one red action accent.",
+      "Compact system typography with clear labels and quiet supporting copy.",
+      "Original geometric screen imagery tied to the saved preference.",
+      "Visible keyboard focus, truthful feedback, and reduced-motion support."
+    ],
+    "rules": [
+      {
+        "name": "The State Pairing Rule",
+        "body": "Show preference state with text and control position as well as color.",
+        "section": "colors"
+      },
+      {
+        "name": "The Local Type Rule",
+        "body": "Use the existing system font stack; the popup does not load a remote font.",
+        "section": "typography"
+      },
+      {
+        "name": "The Stable Feedback Rule",
+        "body": "Reserve room for the supporting sentence and storage feedback so ordinary state changes do not move the control.",
+        "section": "layout"
+      },
+      {
+        "name": "The Restrained Depth Rule",
+        "body": "Use tonal surfaces and thin borders for separation; reserve the small shadow for the switch thumb.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Preference Illustration Rule",
+        "body": "The widening screen represents the saved preference, never the current tab's actual player state.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do preserve the compact charcoal surface, red active switch, and original screen icon.",
+      "Do pair Enabled or Paused language with the switch position and an explanation of its effect.",
+      "Do retain the switch's full hit area, visible focus treatment, and native keyboard behavior.",
+      "Do provide loading, saving, failure, and retry feedback without claiming a write succeeded before storage confirms it.",
+      "Do keep movement brief and disable transitions when reduced motion is requested."
+    ],
+    "donts": [
+      "Don't rely on red alone to communicate whether automatic switching is enabled.",
+      "Don't present the screen illustration as live status for the open YouTube tab.",
+      "Don't replace the original screen mark with an official YouTube logo or imply endorsement.",
+      "Don't introduce remote fonts or decorative assets into this locally rendered popup."
+    ]
+  }
+}

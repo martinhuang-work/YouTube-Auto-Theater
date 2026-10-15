@@ -1,0 +1,56 @@
+# Chrome Web Store publishing guide
+
+Prepared for version **1.1.0**, October 15, 2026. Publishing and Google's review have not occurred.
+
+## 1. Complete publisher account setup
+
+Open the [Chrome Web Store Developer Dashboard](https://chrome.google.com/webstore/devconsole). The publisher must register, pay Google's one-time registration fee if not already registered, complete required identity/contact checks, and enable Google Account two-step verification. Account details, legal certifications and any payment are owner steps.
+
+Use a developer contact address you want associated with the listing. No private account email has been placed in the public project.
+
+## 2. Run the live-browser release checks
+
+Follow [TESTING.md](TESTING.md). Automated fixtures cannot establish compatibility with every current YouTube experiment. Test the actual unpacked extension on live YouTube in Chrome, including first load, video-to-video navigation, off/on, manual override and fullscreen.
+
+## 3. Build the upload ZIP
+
+From the repository root with Node.js 20 or newer:
+
+```sh
+npm run check
+npm test
+npm run package
+```
+
+Upload `dist/YouTube-Auto-Theater-1.1.0.zip`. It includes only the ten files in `extension/`. `manifest.json` is at the ZIP root. Do not upload the source repository ZIP, screenshots, test harness or development files as the extension package.
+
+For a later release, increase the manifest version, synchronize `package.json`, rerun validation and create a fresh ZIP. Never reuse an already-uploaded version number.
+
+## 4. Fill out the draft listing
+
+Create a new item and upload the ZIP. Use [store/LISTING.md](../store/LISTING.md) for the name, description, single purpose, permission justifications and reviewer instructions. Upload the supplied store icon, screenshot(s) and small promotional tile. The marquee is optional.
+
+Set the homepage/support/privacy URLs from the listing file. Confirm they are publicly accessible before submitting. Supply your publisher contact details and select the appropriate distribution regions and pricing options in the current dashboard.
+
+## 5. Complete privacy disclosures
+
+The shipped extension only saves a local on/off preference; it does not collect or transmit user data. It uses no remote code. The content script locally inspects page URL/video identifiers and player elements to perform its single purpose. Ensure the dashboard answers match both the source code and [PRIVACY.md](../PRIVACY.md).
+
+The owner must read and accept the dashboard's certifications. Do not select data categories or make claims inconsistent with the published build. If future features introduce telemetry or new permissions, update the policy and disclosures before submitting that version.
+
+## 6. Submit for review
+
+Review the final listing, package, privacy answers and distribution settings, then submit using the dashboard. Google controls approval and review timing. Keep the repository and listing aligned with the approved version.
+
+After approval, add the real Chrome Web Store install URL to the README and GitHub repository homepage. Do not advertise store availability until the listing is live.
+
+## Official references
+
+- [Register a developer account](https://developer.chrome.com/docs/webstore/register/)
+- [Upload an extension](https://developer.chrome.com/docs/webstore/publish/)
+- [Listing requirements](https://developer.chrome.com/docs/webstore/program-policies/listing-requirements)
+- [Images and dimensions](https://developer.chrome.com/docs/webstore/images)
+- [Privacy fields](https://developer.chrome.com/docs/webstore/cws-dashboard-privacy)
+- [Two-step verification prerequisite](https://developer.chrome.com/docs/webstore/using-api)
+
+Requirements and dashboard wording may change; the current dashboard is authoritative when submitting.
