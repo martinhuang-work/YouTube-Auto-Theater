@@ -1,16 +1,16 @@
 # Privacy policy
 
-**YouTube Auto Theater Mode · Effective October 15, 2026**
+**YouTube Auto Theater Mode · Effective October 21, 2026**
 
-YouTube Auto Theater Mode automatically activates theater mode on supported desktop YouTube watch pages. It is maintained by [martinhuang-work](https://github.com/martinhuang-work).
+YouTube Auto Theater Mode automatically activates theater mode on supported desktop YouTube watch pages and can optionally close live chat or chat replay. It is maintained by [martinhuang-work](https://github.com/martinhuang-work).
 
 ## What is stored
 
-The extension saves one preference, `autoTheaterEnabled` (true or false), in Chrome's local extension storage. This determines whether automatic theater activation is enabled. It is not synchronized by the extension and is not sent to the developer or any server.
+The extension saves two true/false preferences in Chrome's local extension storage: `autoTheaterEnabled` (default true) and `hideLiveChat` (default false). These control automatic theater activation and optional chat closing. Existing theater preferences survive an upgrade, and chat closing requires opting in. Neither preference is synchronized by the extension or sent to the developer or any server.
 
 ## What the extension accesses
 
-The content script runs only on `https://www.youtube.com/*` and `https://youtube.com/*`. It inspects the current page URL/video identifier and player elements locally to recognize a watch page, avoid an obsolete player during navigation and operate the theater button. These page details are not logged, retained as history or transmitted.
+The content scripts run only on `https://www.youtube.com/*` and `https://youtube.com/*`. They inspect the current page URL/video identifier and player elements locally to recognize a watch page, avoid an obsolete player during navigation and operate the theater button. If chat hiding is enabled, the extension also checks whether chat is collapsed and locates YouTube's native chat-close control, including in the same-origin chat frame header. It does not read chat messages, usernames or participant details. These page details are processed in memory, not logged, retained as history or transmitted.
 
 ## Collection, sharing and external services
 
@@ -20,7 +20,7 @@ YouTube, Chrome and GitHub have their own privacy practices. Their ordinary oper
 
 ## Your controls
 
-Use the popup switch to pause automatic theater mode. Pausing preserves the current player layout and the saved preference. Removing the extension removes its local extension storage through Chrome's normal uninstall process.
+Use the popup switches to pause automatic theater mode or automatic chat closing independently. Turning either off preserves the current view. You can reopen chat using YouTube's own controls. Removing the extension removes its local extension storage through Chrome's normal uninstall process.
 
 ## Changes and contact
 

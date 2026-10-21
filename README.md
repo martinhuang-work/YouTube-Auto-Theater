@@ -2,9 +2,9 @@
 
 # YouTube Auto Theater Mode
 
-**A wider view, automatically.** Open desktop YouTube videos in theater mode and keep control with one simple switch.
+**A wider view, automatically.** Open desktop YouTube videos in theater mode and optionally close live chat or chat replay to give the player more room.
 
-Manifest V3 · No runtime dependencies · Local preference only · No analytics
+Manifest V3 · No runtime dependencies · Local preferences only · No analytics
 
 ![The extension popup with automatic theater mode enabled](store/screenshot-enabled-1280x800.png)
 
@@ -13,6 +13,7 @@ Manifest V3 · No runtime dependencies · Local preference only · No analytics
 - Opens standard YouTube watch videos in theater mode, including when you navigate between videos without reloading the page.
 - Waits for the player and size button to finish loading.
 - Remembers your on/off preference on this device.
+- Adds an independent **Hide live chat** switch for live streams and replay chat. It is off by default, including after an upgrade.
 - Lets you change the view manually after automatic activation. It will not keep switching you back.
 - Leaves fullscreen, mini player, Shorts and embedded players alone.
 
@@ -20,9 +21,11 @@ Manifest V3 · No runtime dependencies · Local preference only · No analytics
 
 The popup shows your saved preference, not live confirmation of the current tab's layout. The extension is intended for the desktop YouTube website; it does not add theater mode to pages that lack YouTube's theater control.
 
+**Hide live chat:** switch it on to close an eligible current chat and automatically close chat when you open another watch video. YouTube's native close action lets the player reclaim the chat column. You can reopen chat manually for the current video; the extension will respect that choice. Turning this setting off stops future automatic closing and leaves the current chat view unchanged. It works independently of the theater-mode switch and never reads chat messages or participant details.
+
 ## Install locally
 
-The Chrome Web Store listing has not been published yet. You can install the unpacked extension now:
+You can install the unpacked extension locally:
 
 1. Download this repository using **Code → Download ZIP**, then extract it. Or clone it:
 
@@ -42,10 +45,10 @@ No `npm install`, server or compilation is required to use the extension. After 
 
 | Access | Why it is needed |
 | --- | --- |
-| `storage` | Save one boolean, `autoTheaterEnabled`, using `chrome.storage.local`. It defaults to enabled and is not synced by this extension. |
-| Content script on `https://www.youtube.com/*` and `https://youtube.com/*` | Recognize the watch page and operate YouTube's existing theater button. Injection across the site is necessary because navigation from Home to a video may not reload the page. |
+| `storage` | Save two booleans using `chrome.storage.local`: `autoTheaterEnabled` (default on) and `hideLiveChat` (default off). They are not synced by this extension. |
+| Content scripts on `https://www.youtube.com/*` and `https://youtube.com/*` | Recognize the watch page and operate YouTube's existing theater and chat-close controls. Injection across the site is necessary because navigation from Home to a video may not reload the page. |
 
-The extension makes no network requests and contains no analytics, ads, accounts, remote scripts or remote fonts. It reads the current URL/video identifier and player elements locally to decide when to act; it does not retain or transmit them. Only the enabled/paused preference is saved.
+The extension makes no network requests and contains no analytics, ads, accounts, remote scripts or remote fonts. It reads the current URL/video identifier, player state and chat-close control locally to decide when to act; it does not retain or transmit them. Only the two layout preferences are saved. Version 1.2.0 adds no permissions.
 
 Read the [privacy policy](PRIVACY.md). YouTube's own data practices and browser services operate independently of this extension.
 
@@ -54,6 +57,8 @@ Read the [privacy policy](PRIVACY.md). YouTube's own data practices and browser 
 The content script starts at `document_start`, listens for YouTube navigation events and caches the saved preference. On an eligible watch page, it waits for the matching player and a visible theater-size control, then clicks only if the page is not already in theater mode. A short-lived observer reacts immediately when player elements change; a timer covers changes that do not produce an observed DOM mutation. After success it disconnects, preserving your manual choices for that video.
 
 Each activation window is limited to 20 seconds and at most three spaced clicks. New videos, explicitly re-enabling the switch, returning to an unfinished visible tab or exiting fullscreen can start an appropriate new attempt. Failed or missing controls never cause unlimited polling.
+
+Chat closing uses a separate bounded attempt so chat that appears after theater activation is still handled. It supports the older outer Hide chat button and the newer close button inside YouTube's same-origin chat header. It never directly edits YouTube's layout styles, removes chat elements, reads messages, or changes cookies. Inaccessible frames and missing controls are left alone.
 
 ## Development and verification
 
@@ -67,7 +72,7 @@ npm run package
 
 - `check` validates the manifest, local resources, JavaScript syntax and PNG icon sizes.
 - `test` runs behavior regressions for navigation, delayed rendering, manual overrides, fullscreen, storage failures and toggle persistence.
-- `package` creates `dist/YouTube-Auto-Theater-1.1.1.zip` and its SHA-256 checksum. The ZIP includes only the contents of `extension/`, with `manifest.json` at its root.
+- `package` creates `dist/YouTube-Auto-Theater-1.2.0.zip` and its SHA-256 checksum. The ZIP includes only the contents of `extension/`, with `manifest.json` at its root.
 
 Tests use controlled page/API fixtures. They complement the [manual browser checklist](docs/TESTING.md), which must be run against live YouTube before submission and after significant YouTube layout changes. See that file for the current validation record and limits.
 
@@ -86,6 +91,7 @@ The original geometric icon source is `extension/icons/mark.svg`. Committed PNGs
 extension/           Load this folder in Chrome; shipped extension files only
   manifest.json      Manifest V3 and minimal permissions
   content.js         YouTube navigation and theater activation
+  chat.js            Optional native chat closing, independent of theater mode
   popup.html/css/js  Accessible on/off popup and saved-state feedback
   icons/             Original vector mark and PNG sizes
 store/               Listing copy, screenshots and promotional graphics
@@ -115,6 +121,8 @@ Bug reports are welcome through [GitHub Issues](https://github.com/martinhuang-w
 **A small delay before the video widens:** Version 1.1.1 starts earlier and removes the extra 250 ms wait after observed player changes. Reload the extension and refresh YouTube to use the update. YouTube must still create and initialize its player; a completely flicker-free first frame is not guaranteed.
 
 **It stopped changing the layout after I exited theater mode:** This is intentional for the current video. Open another video or switch the extension off and on to apply it again.
+
+**Chat stays closed after I turn Hide live chat off:** Off stops automatic closing; it does not force chat open. Use YouTube's Show chat or Live chat replay control to reopen it. YouTube may remember its own chat state.
 
 **The popup reports a save/load error:** Use **Try again**. If it persists, reload the extension from `chrome://extensions`, then refresh YouTube.
 

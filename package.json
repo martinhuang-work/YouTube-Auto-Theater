@@ -1,10 +1,10 @@
 {
   "name": "youtube-auto-theater",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "private": true,
   "description": "Development and release tooling for YouTube Auto Theater Mode.",
   "scripts": {
-    "test": "node --test tests/content.test.cjs tests/popup.test.cjs",
+    "test": "node --test tests/content.test.cjs tests/chat.test.cjs tests/popup.test.cjs",
     "check": "node scripts/check.cjs",
     "package": "node scripts/package.cjs"
   },

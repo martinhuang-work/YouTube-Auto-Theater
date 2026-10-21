@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "YouTube Auto Theater Mode",
-  "version": "1.1.1",
-  "description": "Open YouTube videos in theater mode automatically. One switch, saved locally, with no tracking.",
+  "version": "1.2.0",
+  "description": "Open YouTube videos in theater mode and optionally hide live chat or chat replay. Preferences stay on your device.",
   "permissions": ["storage"],
   "icons": {
     "16": "icons/icon16.png",
@@ -22,7 +22,7 @@
   "content_scripts": [
     {
       "matches": ["https://www.youtube.com/*", "https://youtube.com/*"],
-      "js": ["content.js"],
+      "js": ["content.js", "chat.js"],
       "run_at": "document_start"
     }
   ],

@@ -1,6 +1,18 @@
 # Chrome Web Store publishing guide
 
-Prepared for version **1.1.1**, October 15, 2026. Publishing and Google's review have not occurred.
+Prepared for version **1.2.0**, October 21, 2026. This update has not been uploaded or submitted by the coding agent.
+
+## Updating the existing item to 1.2.0
+
+1. Reload the local unpacked extension and refresh YouTube. Test Hide live chat on a replay with chat expanded, on another watch video after navigation, and with theater mode paused. Verify manual reopening and off behavior using [TESTING.md](TESTING.md).
+2. Open the existing YouTube Auto Theater Mode item in the Developer Dashboard. In Package, upload `dist/YouTube-Auto-Theater-1.2.0.zip` as a new package. Keep the existing store item and extension ID.
+3. Update the description and permission explanations using [store/LISTING.md](../store/LISTING.md). Replace the two screenshots with the refreshed 1.2.0 screenshots; icon and promo tiles can stay as they are.
+4. Keep the existing public privacy-policy URL; its contents now describe two local preferences and chat-control access. No new permissions, remote code, message collection or data transmission were added.
+5. Save the draft, resolve any dashboard requirements, then submit the update for review. Google controls review and release timing.
+
+Suggested update note: **Added an optional Hide live chat switch for live streams and chat replay. The setting is off by default, works independently of theater mode, and respects manually reopening chat. No new permissions.**
+
+The remaining sections also cover first-time publisher setup.
 
 ## 1. Complete publisher account setup
 
@@ -24,7 +36,7 @@ npm test
 npm run package
 ```
 
-Upload `dist/YouTube-Auto-Theater-1.1.1.zip`. It includes only the ten files in `extension/`. `manifest.json` is at the ZIP root. Do not upload the source repository ZIP, screenshots, test harness or development files as the extension package.
+Upload `dist/YouTube-Auto-Theater-1.2.0.zip`. It includes only the eleven files in `extension/`. `manifest.json` is at the ZIP root. Do not upload the source repository ZIP, screenshots, test harness or development files as the extension package.
 
 For a later release, increase the manifest version, synchronize `package.json`, rerun validation and create a fresh ZIP. Never reuse an already-uploaded version number.
 
@@ -36,7 +48,7 @@ Set the homepage/support/privacy URLs from the listing file. Confirm they are pu
 
 ## 5. Complete privacy disclosures
 
-The shipped extension only saves a local on/off preference; it does not collect or transmit user data. It uses no remote code. The content script locally inspects page URL/video identifiers and player elements to perform its single purpose. Ensure the dashboard answers match both the source code and [PRIVACY.md](../PRIVACY.md).
+The shipped extension saves two local on/off preferences and transmits no user data. It uses no remote code. The content scripts locally inspect page URL/video identifiers, player elements and chat-close controls to adjust the viewing layout. They do not read chat messages or participant details. Ensure the dashboard answers match both the source code and [PRIVACY.md](../PRIVACY.md).
 
 The owner must read and accept the dashboard's certifications. Do not select data categories or make claims inconsistent with the published build. If future features introduce telemetry or new permissions, update the policy and disclosures before submitting that version.
 

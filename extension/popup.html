@@ -32,11 +32,24 @@
       </div>
 
       <p id="behavior" class="behavior">Automatically widen videos when they open.</p>
+      <section class="chat-setting" aria-label="Chat preference">
+        <div class="setting">
+          <div class="setting-copy">
+            <label for="hideChat">Hide live chat</label>
+            <p id="chatStateText">Loading preference…</p>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="hideChat" role="switch" aria-describedby="chatBehavior" disabled>
+            <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+          </label>
+        </div>
+        <p id="chatBehavior" class="chat-behavior">Includes chat replay. Reopen it anytime on YouTube.</p>
+      </section>
       <div class="feedback" role="status" aria-live="polite" aria-atomic="true">
-        <span id="saveStatus">Loading your setting…</span>
+        <span id="saveStatus">Loading your settings…</span>
         <button id="retry" type="button" hidden>Try again</button>
       </div>
-      <footer><span class="privacy-mark" aria-hidden="true"></span>Only your preference. Saved on this device.</footer>
+      <footer><span class="privacy-mark" aria-hidden="true"></span>Preferences saved on this device.</footer>
     </main>
   </body>
 </html>

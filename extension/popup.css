@@ -36,6 +36,8 @@ input:hover:not(:disabled) + .switch-track { filter: brightness(1.12); }
 input:disabled { cursor: wait; }
 input:disabled + .switch-track { opacity: .5; }
 .behavior { min-height: 40px; margin: 18px 0 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+.chat-setting { margin-top: 14px; padding-top: 18px; border-top: 1px solid #30343b; }
+.chat-behavior { margin: 10px 0 4px; color: var(--muted); font-size: 13px; line-height: 1.55; }
 .feedback { min-height: 45px; display: flex; align-items: center; flex-wrap: wrap; gap: 5px 10px; font-size: 12px; line-height: 1.5; color: var(--muted); padding: 8px 0 12px; }
 .feedback[data-error="true"] { color: #ffb1b8; }
 button { font: inherit; color: var(--text); background: var(--surface); border: 1px solid #626978; border-radius: 6px; padding: 5px 10px; min-height: 32px; cursor: pointer; }
